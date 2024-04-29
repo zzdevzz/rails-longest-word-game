@@ -1,0 +1,12 @@
+<h1>Result</h1>
+
+
+<% if @valid_word == false %>
+  <p>Sorry but <strong><%= @value %></strong> isn't a valid English word...</p>
+<% elsif @valid_compare == false %>
+  <p>Sorry but <strong><%= @value %></strong> can't be built out of <%= @letters.split("").join(" ")  %>...</p>
+<% else %>
+  <p><strong>Congratulations!</strong> <%= @value %> is a valid word!</p>
+<% end %>
+
+<%= link_to "Play Again", new_path%>

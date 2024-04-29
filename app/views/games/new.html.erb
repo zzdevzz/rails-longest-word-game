@@ -1,0 +1,14 @@
+<ul class="d.flex mb-5">
+  <% @letters.each do |letter| %>
+    <li class="p-4 bg-info border-warning fw-bold fst-italic"> <%=letter%></li>
+  <% end %>
+</ul>
+
+<form class="mt-5 px-5" action="/score" method="post" data-turbo="false">
+  <!-- ... -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="word">What is the longest word you can find?</label>
+  <input type="text" id="word" name="word"/>
+  <%= hidden_field_tag :letters, @letters.join %>
+  <input type="submit" value="Play!">
+</form>
